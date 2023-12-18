@@ -1,5 +1,48 @@
 body {
 	margin: 10;
 	padding: 10;
-	background-color: #85a28e;
+	background-color: #999999;
+}
+
+.navbar {
+	grid-area: navbar;
+	background-color: blue;
+	color: aqua;
+}
+
+.header {
+	grid-area: header;
+}
+
+.body {
+	grid-area: body;
+}
+
+.contact {
+	grid-area: contact;
+}
+
+.hidden {
+	grid-area: hidden;
+}
+
+.grid-wrapper {
+	display: grid;
+	grid-gap: 20px;
+
+	grid-template-columns: 250px 1fr 4fr 1fr;
+	grid-template-areas:
+	'hidden   .  header  . '
+	'navbar   .  body    . '
+	'contact  .  body    . ';
+
+}
+
+.link-image {
+	height: 1.5em;
+	width: 1.6em;
+}
+
+.text-link {
+	font-family: 'IBM Plex Mono', monospace;
 }
