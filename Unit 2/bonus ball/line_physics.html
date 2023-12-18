@@ -100,13 +100,14 @@ background: blue"></div>
 		ball4.style.left = pos4
 		ball5.style.left = pos5
 
-		//check for collisions; change direction on a collision and swap velocity if it was with another ball. Edge case: order of balls is known, this code will not work for arbitrary arrangements.
+		//check for collisions; change direction on a wall and swap velocity if it was with another ball. Edge case: order of balls is known, this code will not work for arbitrary arrangements.
 		if (pos1 <= minX) {left1 = false}
-		if (pos2 <= pos1 + 100) {left1 = true; left2 = false; [vel1, vel2] = [vel2, vel1]}
-		if (pos3 <= pos2 + 100) {left2 = true; left3 = false; [vel2, vel3] = [vel3, vel2]}
-		if (pos4 <= pos3 + 100) {left3 = true; left4 = false; [vel3, vel4] = [vel4, vel3]}
-		if (pos5 <= pos4 + 100) {left4 = true; left5 = false; [vel4, vel5] = [vel5, vel4]}
+		if (pos2 <= pos1 + 100) {[left1, left2, vel1, vel2] = [left2, left1, vel2, vel1]}
+		if (pos3 <= pos2 + 100) {[left2, left3, vel2, vel3] = [left3, left2, vel3, vel2]}
+		if (pos4 <= pos3 + 100) {[left3, left4, vel3, vel4] = [left4, left3, vel4, vel3]}
+		if (pos5 <= pos4 + 100) {[left4, left5, vel4, vel5] = [left5, left4, vel5, vel4]}
 		if (maxX <= pos5) {left5 = true}
+
 	}
 	setInterval(move, 50)
 </script>
