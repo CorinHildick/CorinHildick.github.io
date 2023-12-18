@@ -6,20 +6,20 @@ body {
 
 .navbar {
 	grid-area: navbar;
-	background-color: blue;
-	color: aqua;
+	background-color: #bbbbbb;
 }
 
 .header {
 	grid-area: header;
 }
 
-.body {
-	grid-area: body;
+.content {
+	grid-area: content;
 }
 
 .contact {
 	grid-area: contact;
+	background-color: #bbbbbb;
 }
 
 .hidden {
@@ -28,13 +28,16 @@ body {
 
 .grid-wrapper {
 	display: grid;
-	grid-gap: 20px;
+	grid-gap: 10px;
 
 	grid-template-columns: 250px 1fr 4fr 1fr;
+	grid-template-rows: auto 1fr 1fr auto;
 	grid-template-areas:
 	'hidden   .  header  . '
-	'navbar   .  body    . '
-	'contact  .  body    . ';
+	'navbar   .  content . '
+	'navbar   .  content . '
+	'contact  .  content . '
+	'contact  .  .       . ';
 
 }
 
@@ -43,6 +46,38 @@ body {
 	width: 1.6em;
 }
 
-.text-link {
+a {
 	font-family: 'IBM Plex Mono', monospace;
+}
+
+.nav-link {
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 2em;
+}
+
+a:link {
+	color: blue;
+}
+
+a:visited {
+	color: #555555;
+}
+
+a:hover {
+	color: green;
+}
+
+h1 {
+	font-size: 4em;
+	color: aqua;
+	font-variant-caps: small-caps
+}
+
+h2 {
+	color: blue;
+	font-variant-caps:petite-caps
+}
+
+h3 {
+	font-variant-caps: small-caps;
 }
